@@ -1,13 +1,14 @@
 <h2>Book detail</h2>
 
-<%= link_to user_path(book.user_id) do %>
+<%= link_to user_path(@book.user_id) do %>
 <%= image_tag @user.get_profile_image(100,100) %>
- <% end %>
 <%= @user.name %>
-<%= link_to book.title,book_path(book.id) %>
-<%= book.body %>
+ <% end %>
 
-<% if @post_image.user == current_user %>
+<%= link_to @book.title  %>
+<%= @book.body %>
+
+<% if @book.user == current_user %>
 <%= link_to "Edit",edit_book_path(@book.id) %>
 <%= link_to "Destroy", book_path(@book), method: :delete,"data-confirm" => "本当に削除しますか？" %>
 <% end %>
