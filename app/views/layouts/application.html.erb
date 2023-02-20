@@ -76,6 +76,8 @@
              </div>
           </nav>
     </header>
+
+    <main>
     <% if flash[:notice] %>
     <p><%= flash[:notice] %></p>
   <% end %>
@@ -83,6 +85,7 @@
     <p><%= flash[:alert] %></p>
   <% end %>
      <%= yield %>
+     </main>
 
     <footer>
       <div class="container mt-5">
