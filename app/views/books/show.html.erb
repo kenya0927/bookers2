@@ -1,4 +1,4 @@
-<%= render 'list',book:@book_new %>
+<%= render 'list',book:@book_new,user:@user %>
 
 
 
@@ -8,12 +8,16 @@
         <tbody>
             <tr>
                 <td>
-                 <%= link_to user_path(@book.user_id) do %>
+                 <%= link_to user_path(@user.id) do %>
                  <%= image_tag @user.get_profile_image(100,100) %><br>
                  <%= @user.name %>
                  <% end %>
                 </td>
-                <td><%= link_to @book.title  %></td>
+                <td>
+                    <%= link_to books_path(@user.id) do %>
+                    <%= @book.title %>
+                    <% end %>
+                </td>
                 <td><%= @book.body %></td>
                 <% if @book.user == current_user %>
                 <td><%= link_to "Edit",edit_book_path(@book.id),class: "btn btn-sm btn-success" %></td>
